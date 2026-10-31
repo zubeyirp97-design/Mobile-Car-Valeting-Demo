@@ -1,205 +1,502 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="A sample mobile car valeting website concept.">
-<title>Northline Mobile Valeting — Demo Website</title>
+<meta name="description" content="Professional mobile car valeting. Premium car care at your home or workplace.">
+<title>Northline Mobile Valeting | Premium Car Care</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
 <style>
-:root {
-  --site-primary: #c7f36b;
-  --site-on-primary: #172014;
-  --site-secondary: #17251f;
-  --site-on-secondary: #f5f7f1;
-  --site-background: #f4f5ef;
-  --site-on-background: #17251f;
-  --site-font-body: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --site-font-heading: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --site-heading-scale: 1;
-  --site-spacing-scale: 1;
-  --site-radius-scale: 1;
-  --site-decoration-opacity: 1;
-  --ink: #17251f;
-  --muted: #65716a;
-  --line: #dfe4d9;
-  --paper: #ffffff;
-  --soft: #edf1e7;
-  --lime: #c7f36b;
-  --dark: #17251f;
-  --dark2: #22342b;
+:root{
+--lime:#c7f36b;
+--dark:#080e0b;
+--dark2:#101a14;
+--card:#142019;
+--white:#f4f6f0;
+--muted:#a5b0a5;
+--line:rgba(199,243,107,.17);
+--font:'DM Sans',sans-serif;
+--heading:'Manrope',sans-serif;
 }
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { margin: 0; font-family: var(--site-font-body); background: var(--site-background); color: var(--site-on-background); }
-button, input, select, textarea { font: inherit; }
-a { color: inherit; text-decoration: none; }
-#app { min-height: 100vh; width: 100%; background-color: var(--site-background); color: var(--site-on-background); border-radius: 0; overflow: hidden; }
-.demo-bar { background: var(--site-primary); color: var(--site-on-primary); text-align: center; padding: 9px 16px; font-size: 11px; letter-spacing: .13em; font-weight: 800; text-transform: uppercase; }
-.nav-wrap { background: var(--dark); color: #f6f8f3; position: relative; z-index: 2; }
-nav { max-width: 1180px; margin: auto; padding: 22px 28px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-.brand { display: flex; align-items: center; gap: 11px; font-weight: 850; letter-spacing: -.04em; font-size: 17px; }
-.brand-mark { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 11px; background: var(--lime); color: var(--dark); font-size: 18px; }
-.brand small { display: block; color: #aeb9ae; font-size: 9px; letter-spacing: .19em; margin-top: 3px; font-weight: 700; }
-.nav-links { display: flex; align-items: center; gap: 29px; color: #d5ddd4; font-size: 13px; font-weight: 650; }
-.nav-links a:hover { color: var(--lime); }
-.nav-cta, .btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; border: 0; border-radius: calc(999px * var(--site-radius-scale)); padding: 14px 21px; font-weight: 800; font-size: 13px; cursor: pointer; transition: transform .2s, background .2s; }
-.nav-cta, .btn-primary { background: var(--lime); color: var(--dark); }
-.nav-cta:hover, .btn:hover { transform: translateY(-2px); }
-.menu-toggle { display: none; background: transparent; border: 1px solid #536158; color: white; border-radius: 10px; padding: 8px 11px; }
-.hero { background: var(--dark); color: #f5f7f1; position: relative; isolation: isolate; }
-.hero:before { content: ""; position: absolute; z-index: -1; width: 560px; height: 560px; right: -100px; top: -180px; border-radius: 50%; border: 1px solid rgba(199,243,107,.18); box-shadow: 0 0 0 55px rgba(199,243,107,.025), 0 0 0 110px rgba(199,243,107,.02); opacity: var(--site-decoration-opacity); }
-.hero-inner { max-width: 1180px; margin: auto; padding: 74px 28px 82px; display: grid; grid-template-columns: 1.02fr .98fr; gap: 58px; align-items: center; }
-.eyebrow { display: inline-flex; align-items: center; gap: 9px; color: var(--lime); text-transform: uppercase; letter-spacing: .16em; font-size: 10px; font-weight: 850; }
-.eyebrow:before { content: ""; width: 25px; height: 1px; background: currentColor; }
-h1, h2, h3, p { margin-top: 0; }
-h1 { font-family: var(--site-font-heading); font-size: clamp(43px, 5.7vw, 72px); line-height: .99; letter-spacing: -.065em; margin: 22px 0 22px; max-width: 640px; }
-h1 em { color: var(--lime); font-style: normal; }
-.hero-copy { color: #b9c3b9; font-size: 16px; line-height: 1.8; max-width: 510px; margin-bottom: 29px; }
-.hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 13px; }
-.btn-outline { color: #f5f7f1; background: transparent; border: 1px solid #657268; }
-.hero-note { color: #9eaaa0; font-size: 11px; margin-top: 23px; }
-.hero-note span { color: var(--lime); margin-right: 7px; }
-.hero-visual { min-height: 410px; position: relative; border-radius: 22px; overflow: hidden; background: radial-gradient(ellipse at 72% 28%,rgba(199,243,107,.19),transparent 34%),linear-gradient(145deg,#53665a 0%,#26372d 48%,#101a15 100%); box-shadow: 0 28px 65px rgba(0,0,0,.24); }
-.hero-visual:after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(115deg,rgba(255,255,255,.13),transparent 35%,transparent 72%,rgba(199,243,107,.08)); }
-.car-scene { position: absolute; inset: 0; background: radial-gradient(ellipse at 58% 75%, rgba(199,243,107,.2), transparent 45%), linear-gradient(135deg,rgba(255,255,255,.1),transparent 40%); }
-.car-scene:before { content: ""; position: absolute; width: 90%; height: 42%; left: 5%; bottom: 18%; background: linear-gradient(165deg,#c9d0c9 0%,#65736c 26%,#202c27 68%); clip-path: polygon(7% 58%,18% 47%,29% 14%,42% 4%,69% 8%,83% 37%,96% 49%,100% 78%,94% 91%,5% 91%,0 77%); filter: drop-shadow(0 23px 15px rgba(0,0,0,.35)); }
-.car-scene:after { content: ""; position: absolute; width: 78%; height: 13%; left: 11%; bottom: 12%; border-radius: 50%; background: rgba(0,0,0,.55); filter: blur(14px); }
-.wheel { position: absolute; z-index: 1; bottom: 16%; width: 68px; height: 68px; border-radius: 50%; background: radial-gradient(circle,#9aa39b 0 16%,#202824 18% 37%,#080d0b 39% 68%,#6d776f 70% 73%,#101613 75%); }
-.wheel.left { left: 19%; }.wheel.right { right: 17%; }
-.visual-label { position: absolute; z-index: 2; left: 23px; top: 22px; padding: 10px 13px; background: rgba(14,25,19,.72); border: 1px solid rgba(255,255,255,.2); color: #eaf0e8; border-radius: 10px; font-size: 10px; letter-spacing: .12em; font-weight: 800; text-transform: uppercase; backdrop-filter: blur(8px); }
-.visual-bottom { position: absolute; z-index: 2; left: 24px; right: 24px; bottom: 22px; display: flex; justify-content: space-between; align-items: end; color: white; }
-.visual-bottom strong { display: block; font-size: 21px; letter-spacing: -.04em; }.visual-bottom span { font-size: 10px; color: #c3cec2; }
-.sparkle { color: var(--lime); font-size: 27px; }
-.trust-strip { background: #fff; border-bottom: 1px solid var(--line); }
-.trust-inner { max-width: 1180px; margin: auto; padding: 22px 28px; display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
-.trust-item { display: flex; align-items: center; justify-content: center; gap: 11px; color: var(--ink); font-size: 12px; font-weight: 750; }.trust-icon { width: 34px; height: 34px; display: grid; place-items: center; background: var(--soft); border-radius: 50%; color: #435d3b; font-size: 16px; }
-.section { max-width: 1180px; margin: auto; padding: 92px 28px; }
-.section-head { display: flex; justify-content: space-between; align-items: end; gap: 30px; margin-bottom: 37px; }
-.kicker { color: #69834c; text-transform: uppercase; font-size: 10px; letter-spacing: .17em; font-weight: 850; margin-bottom: 13px; }
-h2 { font-size: clamp(31px,4vw,47px); line-height: 1.05; letter-spacing: -.055em; margin-bottom: 0; }
-.section-intro { color: var(--muted); max-width: 390px; font-size: 14px; line-height: 1.8; margin: 0; }
-.services-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 17px; }
-.service-card { background: var(--paper); border: 1px solid var(--line); border-radius: calc(17px * var(--site-radius-scale)); padding: 27px; min-height: 235px; transition: transform .2s, box-shadow .2s; }
-.service-card:hover { transform: translateY(-4px); box-shadow: 0 16px 35px rgba(26,43,32,.08); }
-.service-icon { width: 45px; height: 45px; display: grid; place-items: center; border-radius: 13px; background: var(--soft); font-size: 21px; margin-bottom: 23px; }
-.service-card h3 { font-size: 18px; letter-spacing: -.03em; margin-bottom: 9px; }.service-card p { color: var(--muted); font-size: 13px; line-height: 1.7; margin-bottom: 17px; }.service-card a { color: #526c3c; font-size: 12px; font-weight: 850; }
-.pricing { background: var(--dark); color: #f5f7f1; }
-.pricing-inner { max-width: 1180px; margin: auto; padding: 88px 28px; }
-.pricing .kicker { color: var(--lime); }.pricing .section-intro { color: #b6c0b6; }
-.price-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 17px; margin-top: 37px; }
-.price-card { background: #22332a; border: 1px solid #3a4a40; border-radius: calc(17px * var(--site-radius-scale)); padding: 27px; position: relative; }
-.price-card.featured { background: #eaf3df; color: var(--dark); border-color: var(--lime); }
-.popular { position: absolute; right: 18px; top: 18px; background: var(--lime); color: var(--dark); border-radius: 30px; padding: 6px 9px; font-size: 9px; font-weight: 900; text-transform: uppercase; letter-spacing: .1em; }
-.price-name { font-size: 13px; font-weight: 850; letter-spacing: .02em; }.price { font-size: 42px; font-weight: 850; letter-spacing: -.06em; margin: 15px 0 3px; }.price small { font-size: 12px; letter-spacing: 0; font-weight: 600; }.price-desc { color: #b6c0b6; font-size: 12px; line-height: 1.6; min-height: 40px; }.featured .price-desc { color: #647064; }
-.price-card ul { list-style: none; padding: 17px 0 0; margin: 17px 0 23px; border-top: 1px solid rgba(160,180,160,.22); }.price-card li { font-size: 12px; margin: 12px 0; color: #dce4da; }.featured li { color: #344137; }.price-card li:before { content: "✓"; color: var(--lime); font-weight: 900; margin-right: 9px; }.featured li:before { color: #668d37; }.price-card .btn { width: 100%; }.featured .btn { background: var(--dark); color: white; }
-.about { display: grid; grid-template-columns: .9fr 1.1fr; gap: 65px; align-items: center; }
-.about-visual { min-height: 370px; border-radius: 20px; background: radial-gradient(ellipse at 70% 20%,rgba(255,255,255,.65),transparent 38%),linear-gradient(145deg,#dce7d1,#a7b89e 58%,#71836d); position: relative; overflow: hidden; }
-.about-visual:before { content: ""; position: absolute; width: 78%; height: 40%; left: 11%; bottom: 18%; border-radius: 48% 48% 16% 16%; background: linear-gradient(160deg,#f5f6f1 0%,#aab6aa 38%,#536358 72%,#28382e); transform: skewY(-4deg); box-shadow: 0 27px 28px rgba(25,45,28,.2); }
-.about-visual:after { content: "MOBILE VALETING · AT YOUR PLACE"; position: absolute; top: 25px; left: 25px; font-size: 10px; letter-spacing: .15em; font-weight: 900; color: #3e5540; }
-.about-copy p { color: var(--muted); font-size: 14px; line-height: 1.85; margin: 22px 0; }.check-list { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; margin: 25px 0 28px; }.check-list span { font-size: 12px; font-weight: 750; }.check-list span:before { content: "✓"; display: inline-grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; background: var(--lime); margin-right: 8px; font-size: 11px; }
-.reviews { background: #eaf0e4; }.reviews-inner { max-width: 1180px; margin: auto; padding: 88px 28px; }.review-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 17px; margin-top: 37px; }.review-card { background: white; border: 1px solid #dce5d6; padding: 25px; border-radius: 16px; }.stars { color: #739b39; letter-spacing: .12em; font-size: 13px; }.review-card blockquote { margin: 17px 0 22px; color: #38453b; font-size: 13px; line-height: 1.8; }.review-person { display: flex; align-items: center; gap: 11px; }.avatar { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 50%; background: #e4eddb; color: #536d40; font-size: 11px; font-weight: 900; }.review-person strong { display: block; font-size: 11px; }.review-person small { color: #7b867c; font-size: 10px; }.review-disclaimer { margin-top: 18px; color: #6d796b; font-size: 10px; }
-.contact { background: var(--dark); color: #f5f7f1; }.contact-inner { max-width: 1180px; margin: auto; padding: 88px 28px; display: grid; grid-template-columns: .85fr 1.15fr; gap: 70px; }.contact .kicker { color: var(--lime); }.contact-copy p { color: #b9c3b9; font-size: 14px; line-height: 1.8; margin: 22px 0 28px; }.contact-detail { display: flex; align-items: center; gap: 12px; margin: 17px 0; font-size: 12px; color: #d9e1d8; }.contact-detail b { width: 34px; height: 34px; display: grid; place-items: center; background: #2b3b31; color: var(--lime); border-radius: 50%; }
-.form-card { background: #f9faf6; color: var(--dark); padding: 30px; border-radius: 18px; }.form-card h3 { font-size: 21px; letter-spacing: -.04em; margin-bottom: 7px; }.form-card > p { color: #788277; font-size: 12px; margin-bottom: 22px; }.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }.field { display: flex; flex-direction: column; gap: 7px; margin-bottom: 14px; }.field.full { grid-column: 1 / -1; }.field label { font-size: 10px; font-weight: 850; color: #4f5c50; }.field input, .field select, .field textarea { width: 100%; border: 1px solid #dce3d8; border-radius: 9px; background: white; padding: 12px 13px; color: #17251f; outline: none; font-size: 12px; }.field input:focus, .field select:focus, .field textarea:focus { border-color: #8ebd50; box-shadow: 0 0 0 3px rgba(142,189,80,.14); }.field textarea { resize: vertical; min-height: 90px; }.form-card .btn { width: 100%; background: var(--lime); color: var(--dark); }.form-note { font-size: 10px; color: #849083; text-align: center; margin: 12px 0 0; }.success { display: none; padding: 12px; margin-top: 13px; border-radius: 9px; background: #e6f2d9; color: #355329; font-size: 12px; font-weight: 700; }
-footer { background: #101a15; color: #aeb9ae; }.footer-inner { max-width: 1180px; margin: auto; padding: 25px 28px; display: flex; justify-content: space-between; gap: 20px; align-items: center; font-size: 10px; }.footer-inner strong { color: #f2f5ef; }.footer-links { display: flex; gap: 18px; }
-@media (max-width: 800px) { .nav-links { display: none; position: absolute; top: 75px; left: 0; right: 0; background: var(--dark); padding: 18px 28px 25px; flex-direction: column; align-items: flex-start; border-top: 1px solid #39483e; }.nav-links.open { display: flex; }.nav-cta { display: none; }.menu-toggle { display: block; }.hero-inner { grid-template-columns: 1fr; gap: 35px; padding-top: 58px; }.hero-visual { min-height: 330px; }.trust-inner { grid-template-columns: 1fr 1fr; }.section-head { display: block; }.section-intro { margin-top: 18px; }.services-grid, .price-grid, .review-grid { grid-template-columns: 1fr 1fr; }.about { grid-template-columns: 1fr; gap: 35px; }.about-visual { min-height: 300px; }.contact-inner { grid-template-columns: 1fr; gap: 35px; } }
-@media (max-width: 540px) { nav { padding: 17px 20px; }.hero-inner, .section, .pricing-inner, .reviews-inner, .contact-inner { padding-left: 20px; padding-right: 20px; }.hero-inner { padding-top: 48px; padding-bottom: 55px; }.hero-visual { min-height: 270px; }.trust-inner { padding: 18px 20px; gap: 15px 8px; }.trust-item { justify-content: flex-start; font-size: 10px; }.services-grid, .price-grid, .review-grid { grid-template-columns: 1fr; }.section, .pricing-inner, .reviews-inner, .contact-inner { padding-top: 67px; padding-bottom: 67px; }.service-card { min-height: auto; }.form-card { padding: 22px 18px; }.form-grid { grid-template-columns: 1fr; gap: 0; }.field.full { grid-column: auto; }.check-list { grid-template-columns: 1fr; }.footer-inner { flex-direction: column; text-align: center; }.footer-links { justify-content: center; } }
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--dark);color:var(--white)}
+a{text-decoration:none;color:inherit}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+img{display:block;width:100%;height:100%;object-fit:cover}
+.demo-bar{background:var(--lime);color:#11190e;text-align:center;padding:8px 12px;font-size:10px;font-weight:800;letter-spacing:1.3px;text-transform:uppercase}
+.nav-wrap{position:absolute;top:29px;left:0;right:0;z-index:10;border-bottom:1px solid rgba(255,255,255,.12)}
+nav{max-width:1250px;margin:auto;padding:18px 30px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:17px;letter-spacing:-.8px}
+.brand-mark{font-size:29px;font-weight:900;color:var(--lime);font-style:italic}
+.brand small{display:block;font-size:8px;letter-spacing:2px;color:#aab4a9}
+.nav-links{display:flex;gap:30px;font-size:12px;font-weight:700;color:#e1e6df}
+.nav-links a:hover{color:var(--lime)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 22px;border-radius:40px;font-size:12px;font-weight:800;border:1px solid transparent;transition:.25s}
+.btn:hover{transform:translateY(-3px)}
+.btn-primary{background:var(--lime);color:#10170d}
+.btn-outline{border-color:#87948a;color:white;background:transparent}
+.nav-cta{padding:12px 20px;background:var(--lime);color:#11190e;border-radius:30px;font-size:11px;font-weight:900}
+.menu-toggle{display:none;background:transparent;border:1px solid #66736a;color:white;padding:8px 12px;border-radius:8px;font-size:18px}
+.hero{min-height:690px;position:relative;display:flex;align-items:center;overflow:hidden;background:#080e0b}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(90deg,#080e0b 0%,rgba(8,14,11,.96) 26%,rgba(8,14,11,.66) 49%,rgba(8,14,11,.08) 100%),linear-gradient(0deg,#080e0b 0%,transparent 35%),url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=2000&q=90') center 55%/cover}
+.hero-inner{position:relative;z-index:1;max-width:1250px;width:100%;margin:auto;padding:145px 30px 90px}
+.eyebrow{font-size:11px;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:var(--lime);display:flex;align-items:center;gap:10px}
+.eyebrow:before{content:"";width:25px;height:2px;background:var(--lime)}
+h1,h2,h3{font-family:var(--heading)}
+h1{font-size:clamp(48px,6.5vw,82px);line-height:1.02;letter-spacing:-4px;max-width:650px;margin:24px 0}
+h1 em,h2 em{color:var(--lime);font-style:normal}
+.hero-copy{max-width:470px;color:#c1c9c0;font-size:15px;line-height:1.8;margin-bottom:28px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.hero-note{font-size:11px;color:#c3ccc2;margin-top:27px}
+.hero-note span{color:var(--lime);margin-right:8px}
+.trust-strip{background:#101a14;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.trust-inner{max-width:1250px;margin:auto;padding:23px 30px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.trust-item{display:flex;align-items:center;justify-content:center;gap:12px;font-size:12px;font-weight:700}
+.trust-icon{color:var(--lime);font-size:23px}
+.section{max-width:1250px;margin:auto;padding:95px 30px}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:35px;margin-bottom:38px}
+.kicker{color:var(--lime);font-size:10px;letter-spacing:2px;font-weight:900;text-transform:uppercase;margin-bottom:13px}
+h2{font-size:clamp(34px,4vw,49px);line-height:1.08;letter-spacing:-2px}
+.section-intro{max-width:390px;color:var(--muted);font-size:13px;line-height:1.8}
+.services-layout{display:grid;grid-template-columns:.8fr 2.2fr;gap:35px;align-items:center}
+.services-intro p{color:var(--muted);font-size:13px;line-height:1.8;margin:18px 0 25px}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.service-card{background:var(--card);border:1px solid var(--line);border-radius:13px;overflow:hidden;transition:.3s}
+.service-card:hover{transform:translateY(-6px);border-color:var(--lime)}
+.service-image{height:185px;position:relative;overflow:hidden}
+.service-image img{transition:transform .5s}
+.service-card:hover .service-image img{transform:scale(1.06)}
+.service-content{padding:20px}
+.service-icon{color:var(--lime);font-size:23px;margin-bottom:12px}
+.service-card h3{font-size:17px;margin-bottom:9px}
+.service-card p{font-size:11px;color:var(--muted);line-height:1.7;margin-bottom:14px}
+.service-card a{font-size:11px;font-weight:800;color:var(--lime)}
+.pricing{background:linear-gradient(130deg,#111c15,#080e0b);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.pricing-inner{max-width:1250px;margin:auto;padding:90px 30px}
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:38px}
+.price-card{border:1px solid #344238;background:#111b14;border-radius:14px;padding:29px;position:relative}
+.price-card.featured{background:#e9f2df;color:#11190e;border:2px solid var(--lime);transform:translateY(-8px)}
+.popular{position:absolute;top:0;left:0;right:0;text-align:center;background:var(--lime);color:#10170d;font-size:9px;font-weight:900;letter-spacing:1.5px;padding:9px;text-transform:uppercase;border-radius:11px 11px 0 0}
+.featured .price-name{margin-top:19px}
+.price-name{font-size:12px;font-weight:900;letter-spacing:1px}
+.price{font-family:var(--heading);font-size:43px;font-weight:900;letter-spacing:-2px;margin:17px 0 4px}
+.price small{font-size:12px;letter-spacing:0;font-weight:600}
+.price-desc{font-size:11px;color:var(--muted);line-height:1.7;min-height:36px}
+.featured .price-desc{color:#65705e}
+.price-card ul{list-style:none;border-top:1px solid #39463b;margin:19px 0;padding-top:15px}
+.featured ul{border-color:#c7d5bd}
+.price-card li{font-size:11px;margin:12px 0;color:#d9e0d7}
+.featured li{color:#263326}
+.price-card li:before{content:"✓";color:var(--lime);margin-right:9px;font-weight:900}
+.featured li:before{color:#65932e}
+.price-card .btn{width:100%;border:1px solid var(--lime);color:white}
+.featured .btn{background:#111b14;color:white;border:0}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:65px;align-items:center}
+.about-image{height:430px;border-radius:14px;overflow:hidden;position:relative}
+.about-image:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.4),transparent 55%)}
+.about-copy p{color:var(--muted);font-size:13px;line-height:1.9;margin:20px 0}
+.check-list{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin:25px 0 30px}
+.check-list span{font-size:11px;font-weight:700}
+.check-list span:before{content:"✓";color:var(--lime);font-weight:900;margin-right:9px}
+.reviews{background:#111a14;border-top:1px solid var(--line)}
+.reviews-inner{max-width:1250px;margin:auto;padding:85px 30px}
+.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px;margin-top:35px}
+.review-card{background:#e9eee5;color:#172219;padding:26px;border-radius:12px}
+.stars{color:#638e2c;font-size:13px;letter-spacing:2px;font-weight:900}
+.review-card blockquote{font-size:12px;line-height:1.8;margin:17px 0 22px}
+.review-person{display:flex;align-items:center;gap:10px}
+.avatar{width:34px;height:34px;border-radius:50%;background:#d4e4c8;display:grid;place-items:center;font-size:11px;font-weight:900}
+.review-person strong{display:block;font-size:11px}
+.review-person small{font-size:9px;color:#758073}
+.review-disclaimer{text-align:center;color:#89958a;font-size:10px;margin-top:18px}
+.contact{background:#080e0b;border-top:1px solid var(--line)}
+.contact-inner{max-width:1250px;margin:auto;padding:90px 30px;display:grid;grid-template-columns:.85fr 1.15fr;gap:65px;align-items:center}
+.contact-copy p{color:var(--muted);font-size:13px;line-height:1.9;margin:20px 0 25px}
+.contact-detail{display:flex;align-items:center;gap:13px;margin:17px 0;font-size:12px;color:#d9e0d7}
+.contact-detail b{width:34px;height:34px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;color:var(--lime)}
+.form-card{background:#edf1e9;color:#142017;padding:30px;border-radius:15px}
+.form-card h3{font-size:23px;letter-spacing:-1px}
+.form-card>p{font-size:11px;color:#697568;margin:7px 0 22px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.field{display:flex;flex-direction:column;gap:7px;margin-bottom:13px}
+.field.full{grid-column:1/-1}
+.field label{font-size:9px;font-weight:900;letter-spacing:.7px}
+.field input,.field select,.field textarea{width:100%;border:1px solid #d2dbce;border-radius:7px;padding:12px;background:white;color:#172219;font-size:11px;outline:none}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:#83a94c}
+.field textarea{min-height:85px;resize:vertical}
+.form-card .btn{width:100%;background:var(--lime);color:#11190e;border:0}
+.form-note{text-align:center;font-size:9px;color:#788274;margin-top:12px}
+.success{display:none;margin-top:12px;padding:12px;background:#dcebd0;color:#315329;border-radius:7px;font-size:11px}
+footer{background:#050a07;border-top:1px solid var(--line)}
+.footer-inner{max-width:1250px;margin:auto;padding:26px 30px;display:flex;justify-content:space-between;align-items:center;gap:20px;color:#89958a;font-size:10px}
+.footer-inner strong{color:white;font-size:13px}
+.footer-links{display:flex;gap:20px}
+.footer-links a:hover{color:var(--lime)}
+@media(max-width:850px){
+.nav-links{display:none;position:absolute;top:68px;left:0;right:0;background:#101a14;padding:24px 30px;flex-direction:column;align-items:flex-start;border-bottom:1px solid var(--line)}
+.nav-links.open{display:flex}
+.nav-cta{display:none}
+.menu-toggle{display:block}
+.hero{min-height:650px}
+.hero-bg{background:linear-gradient(90deg,rgba(8,14,11,.94),rgba(8,14,11,.45)),linear-gradient(0deg,#080e0b,transparent 40%),url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1200&q=85') center/cover}
+.services-layout{grid-template-columns:1fr}
+.services-grid{grid-template-columns:repeat(3,1fr)}
+.about{gap:35px}
+.contact-inner{gap:35px}
+}
+@media(max-width:600px){
+nav{padding:15px 20px}
+.hero{min-height:670px}
+.hero-inner{padding:145px 22px 65px}
+h1{font-size:53px;letter-spacing:-2.8px}
+.hero-copy{font-size:13px}
+.trust-inner{grid-template-columns:1fr 1fr;padding:20px;gap:18px 10px}
+.trust-item{justify-content:flex-start;font-size:10px}
+.section,.pricing-inner,.reviews-inner,.contact-inner{padding:65px 20px}
+.section-head{display:block}
+.section-intro{margin-top:17px}
+.services-grid,.price-grid,.review-grid{grid-template-columns:1fr}
+.service-image{height:210px}
+.price-card.featured{transform:none}
+.about{grid-template-columns:1fr}
+.about-image{height:290px}
+.check-list{grid-template-columns:1fr}
+.contact-inner{grid-template-columns:1fr}
+.form-card{padding:22px 17px}
+.form-grid{grid-template-columns:1fr}
+.field.full{grid-column:auto}
+.footer-inner{flex-direction:column;text-align:center}
+.footer-links{justify-content:center}
+}
 </style>
 </head>
 <body>
-<div id="app">
-  <div class="demo-bar">Website concept demo · Sample business · Content can be customised</div>
-  <div class="nav-wrap">
-    <nav>
-      <a class="brand" href="#home" aria-label="Northline home"><span class="brand-mark">N</span><span>NORTHLINE<small>MOBILE VALETING</small></span></a>
-      <div class="nav-links" id="navLinks"><a href="#services">Services</a><a href="#packages">Packages</a><a href="#about">About</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a></div>
-      <a class="nav-cta" href="#contact">Get a free quote <span>↗</span></a>
-      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
-    </nav>
-  </div>
-  <main>
-    <section class="hero" id="home">
-      <div class="hero-inner">
-        <div>
-          <div class="eyebrow">Professional mobile car care</div>
-          <h1>A proper clean.<br><em>Right at your</em><br>doorstep.</h1>
-          <p class="hero-copy">Muddy school runs, weekday commutes or a weekend road trip — we’ll get your car looking its best without you having to leave the driveway. Choose a valet, pick a time and we’ll come to you.</p>
-          <div class="hero-actions"><a class="btn btn-primary" href="#contact">Request a quote <span>↗</span></a><a class="btn btn-outline" href="#services">Explore services <span>↓</span></a></div>
-          <div class="hero-note"><span>✦</span> Your driveway. Your schedule. A cleaner car.</div>
-        </div>
-        <div class="hero-visual" role="img" aria-label="Stylised illustration of a freshly valeted car">
-          <div class="car-scene"></div><div class="visual-label">The Northline finish</div><div class="wheel left"></div><div class="wheel right"></div>
-          <div class="visual-bottom"><div><strong>Clean from every angle.</strong><span>Mobile valeting, made simple.</span></div><div class="sparkle">✳</div></div>
-        </div>
-      </div>
-    </section>
-      <section class="trust-strip"><div class="trust-inner"><div class="trust-item"><span class="trust-icon">⌂</span> We come to you</div><div class="trust-item"><span class="trust-icon">✦</span> Detail-focused finish</div><div class="trust-item"><span class="trust-icon">◷</span> Flexible appointments</div><div class="trust-item"><span class="trust-icon">♡</span> Care for every vehicle</div></div></section>
-    <section class="section" id="services">
-      <div class="section-head"><div><div class="kicker">What we do</div><h2>More than just<br>a quick wash.</h2></div><p class="section-intro">Choose the level of care your vehicle needs. Every service is carried out at a location that suits you.</p></div>
-      <div class="services-grid">
-        <article class="service-card"><div class="service-icon">✧</div><h3>Exterior Valet</h3><p>A careful pre-wash, hand wash, wheel clean and finishing touches to bring back that just-cleaned shine.</p><a href="#packages">Explore package ↗</a></article>
-        <article class="service-card"><div class="service-icon">⌁</div><h3>Interior Valet</h3><p>Thorough vacuuming, surface wipe-down, glass cleaning and attention to the areas you touch every day.</p><a href="#packages">Explore package ↗</a></article>
-        <article class="service-card"><div class="service-icon">✦</div><h3>Full Valet</h3><p>Our complete inside-and-out refresh for a beautifully clean cabin and a glossy exterior finish.</p><a href="#packages">Explore package ↗</a></article>
-      </div>
-    </section>
-    <section class="pricing" id="packages"><div class="pricing-inner">
-      <div class="section-head"><div><div class="kicker">Simple packages</div><h2>Find your level<br>of clean.</h2></div><p class="section-intro">Choose a starting point that suits your car. The example prices shown here can be adjusted to match your vehicle sizes, services and local market.</p></div>
-      <div class="price-grid">
-        <article class="price-card"><div class="price-name">THE REFRESH</div><div class="price">£35<small> / from</small></div><p class="price-desc">A tidy-up for the everyday driver.</p><ul><li>Exterior hand wash</li><li>Wheels & tyres cleaned</li><li>Exterior glass cleaned</li><li>Tyre dressing</li></ul><a class="btn btn-outline" href="#contact">Enquire now ↗</a></article>
-        <article class="price-card featured"><span class="popular">Most popular</span><div class="price-name">THE DEEP CLEAN</div><div class="price">£65<small> / from</small></div><p class="price-desc">A little extra attention, inside and out.</p><ul><li>Everything in The Refresh</li><li>Full interior vacuum</li><li>Dashboard & surfaces wiped</li><li>Interior glass cleaned</li></ul><a class="btn" href="#contact">Enquire now ↗</a></article>
-        <article class="price-card"><div class="price-name">THE FULL WORKS</div><div class="price">£95<small> / from</small></div><p class="price-desc">The complete Northline treatment.</p><ul><li>Everything in The Deep Clean</li><li>Detailed interior clean</li><li>Door shuts cleaned</li><li>Finishing detail throughout</li></ul><a class="btn btn-outline" href="#contact">Enquire now ↗</a></article>
-         </div>
-    </div></section>
-    <section class="section about" id="about">
-      <div class="about-visual" role="img" aria-label="Stylised clean car illustration"></div>
-      <div class="about-copy"><div class="kicker">A better way to valet</div><h2>Good car care,<br>without the detour.</h2><p>No waiting around at a car wash and no rearranging your day. Book a visit at home or work, tell us what your car needs, and we’ll bring the kit and attention to detail to you. It’s a straightforward service built around your schedule.</p><div class="check-list"><span>Home & workplace visits</span><span>Careful hand-finished wash</span><span>Clear package options</span><span>Appointments that fit your day</span></div><a class="btn btn-primary" href="#contact">Let's get your car sorted ↗</a></div>
-    </section>
-    <section class="reviews" id="reviews"><div class="reviews-inner">
-      <div class="section-head"><div><div class="kicker">Kind words</div><h2>Don't just take<br>our word for it.</h2></div><p class="section-intro">A great experience is about more than a clean car. It's about making the whole process easy.</p></div>
-      <div class="review-grid">
-        <article class="review-card"><div class="stars">ILLUSTRATIVE EXAMPLE</div><blockquote>“The whole visit was easy to arrange. Having the car cleaned while I was working from home saved me a trip and a couple of hours.”</blockquote><div class="review-person"><span class="avatar">JT</span><span><strong>Example customer</strong><small>Full Valet · Placeholder copy</small></span></div></article>
-        <article class="review-card"><div class="stars">ILLUSTRATIVE EXAMPLE</div><blockquote>“The inside needed a proper refresh after weeks of family use. The seats, mats and dashboard looked so much better afterwards.”</blockquote><div class="review-person"><span class="avatar">SK</span><span><strong>Example customer</strong><small>Interior Valet · Placeholder copy</small></span></div></article>
-        <article class="review-card"><div class="stars">ILLUSTRATIVE EXAMPLE</div><blockquote>“Friendly, punctual and no fuss. I liked being able to choose a package and get a clear idea of the cost before booking.”</blockquote><div class="review-person"><span class="avatar">MB</span><span><strong>Example customer</strong><small>Exterior Valet · Placeholder copy</small></span></div></article>
-      </div>
-      <p class="review-disclaimer">Portfolio demo only: these example quotes are fictional placeholders, not customer feedback. Replace them with genuine, permission-approved reviews before publishing.</p>
-    </div></section>
-    <section class="contact" id="contact"><div class="contact-inner">
-      <div class="contact-copy"><div class="kicker">Ready when you are</div><h2>Let's get your<br>car looking its best.</h2><p>Tell us a little about your vehicle and the service you're after. We'll be in touch with a tailored quote and appointment options.</p><div class="contact-detail"><b>⌖</b><span>Serving [Your Town] & surrounding areas</span></div><div class="contact-detail"><b>◷</b><span>Appointments by arrangement</span></div><div
-    class="contact-detail"><b>✉</b><span>hello@northlinevaleting.example</span></div></div>
-      <form class="form-card" id="quoteForm"><h3>Request your free quote</h3><p>Fill in the details below and we'll take it from there.</p>
-        <div class="form-grid">
-          <div class="field"><label for="name">YOUR NAME *</label><input id="name" name="name" placeholder="e.g. Alex Morgan" required></div>
-          <div class="field"><label for="email">EMAIL ADDRESS *</label><input id="email" name="email" type="email" placeholder="you@example.com" required></div>
-          <div class="field"><label for="phone">PHONE NUMBER</label><input id="phone" name="phone" type="tel" placeholder="Your contact number"></div>
-          <div class="field"><label for="vehicle">VEHICLE TYPE</label><select id="vehicle" name="vehicle"><option value="">Select vehicle</option><option>Small car</option><option>Hatchback / Saloon</option><option>SUV / 4x4</option><option>Van</option><option>Other</option></select></div>
-          <div class="field"><label for="service">SERVICE REQUIRED *</label><select id="service" name="service" required><option value="">Choose a service</option><option>Exterior Valet</option><option>Interior Valet</option><option>Full Valet</option><option>Not sure — advise me</option></select></div>
-          <div class="field"><label for="location">YOUR AREA / POSTCODE</label><input id="location" name="location" placeholder="e.g. Bristol, BS1"></div>
-          <div class="field full"><label for="message">ANYTHING ELSE WE SHOULD KNOW?</label><textarea id="message" name="message" placeholder="Tell us about your vehicle or preferred dates..."></textarea></div>
-        </div>
-        <button class="btn" type="submit">Send enquiry <span>↗</span></button><p class="form-note">Demo form only — no message will be sent. Connect to an email or booking service for a live website.</p><div class="success" id="formSuccess" role="status">Thanks! Your demo enquiry has been captured on this page. No email was sent.</div>
-      </form>
-    </div></section>
-  </main>
-  <footer><div class="footer-inner"><div><strong>NORTHLINE MOBILE VALETING</strong><br>© 2026 Northline. Demo website concept.</div><div class="footer-links"><a href="#services">Services</a><a href="#packages">Packages</a><a href="#contact">Contact</a></div><div>Designed as a sample business website</div></div></footer>
+<div class="demo-bar">Website concept demo · Sample business · Content can be customised</div>
+<div class="nav-wrap">
+<nav>
+<a class="brand" href="#home"><span class="brand-mark">N</span><span>NORTHLINE<small>MOBILE VALETING</small></span></a>
+<div class="nav-links" id="navLinks">
+<a href="#services">Services</a>
+<a href="#packages">Packages</a>
+<a href="#about">About</a>
+<a href="#reviews">Reviews</a>
+<a href="#contact">Contact</a>
 </div>
+<a class="nav-cta" href="#contact">Get a free quote ↗</a>
+<button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+</nav>
+</div>
+<main>
+<section class="hero" id="home">
+<div class="hero-bg"></div>
+<div class="hero-inner">
+<div class="eyebrow">Professional mobile car care</div>
+<h1>A proper clean.<br><em>Right at your</em><br>doorstep.</h1>
+<p class="hero-copy">Muddy school runs, weekday commutes or a weekend road trip — we’ll get your car looking its best without you having to leave the driveway. Choose a valet, pick a time and we’ll come to you.</p>
+<div class="hero-actions">
+<a class="btn btn-primary" href="#contact">Request a quote ↗</a>
+<a class="btn btn-outline" href="#services">Explore services ↓</a>
+</div>
+<div class="hero-note"><span>✦</span>Your driveway. Your schedule. A cleaner car.</div>
+</div>
+</section>
+<section class="trust-strip">
+<div class="trust-inner">
+<div class="trust-item"><span class="trust-icon">⌂</span>We come to you</div>
+<div class="trust-item"><span class="trust-icon">◇</span>Detail-focused finish</div>
+<div class="trust-item"><span class="trust-icon">◷</span>Flexible appointments</div>
+<div class="trust-item"><span class="trust-icon">♡</span>Care for every vehicle</div>
+</div>
+</section>
+<section class="section" id="services">
+<div class="services-layout">
+<div class="services-intro">
+<div class="kicker">What we do</div>
+<h2>More than just<br>a <em>quick wash.</em></h2>
+<p>Choose the level of care your vehicle needs. Every service is carried out at a location that suits you.</p>
+<a class="btn btn-primary" href="#packages">Explore packages ↗</a>
+</div>
+
+<div class="services-grid">
+<article class="service-card">
+<div class="service-image">
+<img src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=700&q=85" alt="Professional exterior car wash">
+</div>
+<div class="service-content">
+<div class="service-icon">✧</div>
+<h3>Exterior Valet</h3>
+<p>A careful pre-wash, hand wash, wheel clean and finishing touches to bring back that just-cleaned shine.</p>
+<a href="#packages">Explore package ↗</a>
+</div>
+</article>
+
+<article class="service-card">
+<div class="service-image">
+<img src="https://images.unsplash.com/photo-1492168732976-2676c584c675?auto=format&fit=crop&w=700&q=85" alt="Clean luxury car interior">
+</div>
+<div class="service-content">
+<div class="service-icon">⌁</div>
+<h3>Interior Valet</h3>
+<p>Thorough vacuuming, surface wipe-down, glass cleaning and attention to the areas you touch every day.</p>
+<a href="#packages">Explore package ↗</a>
+</div>
+</article>
+
+<article class="service-card">
+<div class="service-image">
+<img src="https://images.unsplash.com/photo-1600705722904-4c3e7e4f5b7e?auto=format&fit=crop&w=700&q=85" alt="Premium detailed vehicle">
+</div>
+<div class="service-content">
+<div class="service-icon">✦</div>
+<h3>Full Valet</h3>
+<p>Our complete inside-and-out refresh for a beautifully clean cabin and a glossy exterior finish.</p>
+<a href="#packages">Explore package ↗</a>
+</div>
+</article>
+</div>
+</div>
+</section>
+
+<section class="pricing" id="packages">
+<div class="pricing-inner">
+<div class="section-head">
+<div>
+<div class="kicker">Simple packages</div>
+<h2>Find your level<br>of <em>clean.</em></h2>
+</div>
+<p class="section-intro">Choose a starting point that suits your car. These example prices can be adjusted to match your services and local market.</p>
+</div>
+
+<div class="price-grid">
+
+<article class="price-card">
+<div class="price-name">THE REFRESH</div>
+<div class="price">£35<small> / from</small></div>
+<p class="price-desc">A tidy-up for the everyday driver.</p>
+<ul>
+<li>Exterior hand wash</li>
+<li>Wheels & tyres cleaned</li>
+<li>Exterior glass cleaned</li>
+<li>Tyre dressing</li>
+</ul>
+<a class="btn" href="#contact">Enquire now ↗</a>
+</article>
+
+<article class="price-card featured">
+<span class="popular">Most popular</span>
+<div class="price-name">THE DEEP CLEAN</div>
+<div class="price">£65<small> / from</small></div>
+<p class="price-desc">A little extra attention, inside and out.</p>
+<ul>
+<li>Everything in The Refresh</li>
+<li>Full interior vacuum</li>
+<li>Dashboard & surfaces wiped</li>
+<li>Interior glass cleaned</li>
+</ul>
+<a class="btn" href="#contact">Enquire now ↗</a>
+</article>
+
+<article class="price-card">
+<div class="price-name">THE FULL WORKS</div>
+<div class="price">£95<small> / from</small></div>
+<p class="price-desc">The complete Northline treatment.</p>
+<ul>
+<li>Everything in The Deep Clean</li>
+<li>Detailed interior clean</li>
+<li>Door shuts cleaned</li>
+<li>Finishing detail throughout</li>
+</ul>
+<a class="btn" href="#contact">Enquire now ↗</a>
+</article>
+
+</div>
+</div>
+</section>
+
+<section class="section about" id="about">
+<div class="about-image">
+<img src="https://images.unsplash.com/photo-1613214150384-9e9e4f8f9d3a?auto=format&fit=crop&w=1000&q=85" alt="Premium car detailing">
+</div>
+
+<div class="about-copy">
+<div class="kicker">A better way to valet</div>
+<h2>Good car care,<br>without the <em>detour.</em></h2>
+<p>No waiting around at a car wash and no rearranging your day. Book a visit at home or work, tell us what your car needs, and we’ll bring the kit and attention to detail to you. It’s a straightforward service built around your schedule.</p>
+
+<div class="check-list">
+<span>Home & workplace visits</span>
+<span>Careful hand-finished wash</span>
+<span>Clear package options</span>
+<span>Appointments that fit your day</span>
+</div>
+
+<a class="btn btn-primary" href="#contact">Let's get your car sorted ↗</a>
+</div>
+</section>
+
+<section class="reviews" id="reviews">
+<div class="reviews-inner">
+<div class="section-head">
+<div>
+<div class="kicker">Kind words</div>
+<h2>Don't just take<br>our word <em>for it.</em></h2>
+</div>
+<p class="section-intro">A great experience is about more than a clean car. It's about making the whole process easy.</p>
+</div>
+
+<div class="review-grid">
+
+<article class="review-card">
+<div class="stars">ILLUSTRATIVE EXAMPLE</div>
+<blockquote>“The whole visit was easy to arrange. Having the car cleaned while I was working from home saved me a trip and a couple of hours.”</blockquote>
+<div class="review-person">
+<span class="avatar">JT</span>
+<span><strong>Example customer</strong><small>Full Valet · Placeholder copy</small></span>
+</div>
+</article>
+
+<article class="review-card">
+<div class="stars">ILLUSTRATIVE EXAMPLE</div>
+<blockquote>“The inside needed a proper refresh after weeks of family use. The seats, mats and dashboard looked so much better afterwards.”</blockquote>
+<div class="review-person">
+<span class="avatar">SK</span>
+<span><strong>Example customer</strong><small>Interior Valet · Placeholder copy</small></span>
+</div>
+</article>
+
+<article class="review-card">
+<div class="stars">ILLUSTRATIVE EXAMPLE</div>
+<blockquote>“Friendly, punctual and no fuss. I liked being able to choose a package and get a clear idea of the cost before booking.”</blockquote>
+<div class="review-person">
+<span class="avatar">MB</span>
+<span><strong>Example customer</strong><small>Exterior Valet · Placeholder copy</small></span>
+</div>
+</article>
+
+</div>
+<p class="review-disclaimer">Portfolio demo only: these example quotes are fictional placeholders, not customer feedback. Replace them with genuine, permission-approved reviews before publishing.</p>
+</div>
+</section>
+
+<section class="contact" id="contact">
+<div class="contact-inner">
+
+<div class="contact-copy">
+<div class="kicker">Ready when you are</div>
+<h2>Let's get your<br>car looking <em>its best.</em></h2>
+<p>Tell us a little about your vehicle and the service you're after. We'll be in touch with a tailored quote and appointment options.</p>
+
+<div class="contact-detail"><b>⌖</b><span>Serving [Your Town] & surrounding areas</span></div>
+<div class="contact-detail"><b>◷</b><span>Appointments by arrangement</span></div>
+<div class="contact-detail"><b>✉</b><span>hello@northlinevaleting.example</span></div>
+</div>
+
+<form class="form-card" id="quoteForm">
+<h3>Request your free quote</h3>
+<p>Fill in the details below and we'll take it from there.</p>
+
+<div class="form-grid">
+
+<div class="field">
+<label for="name">YOUR NAME *</label>
+<input id="name" name="name" placeholder="e.g. Alex Morgan" required>
+</div>
+
+<div class="field">
+<label for="email">EMAIL ADDRESS *</label>
+<input id="email" name="email" type="email" placeholder="you@example.com" required>
+</div>
+
+<div class="field">
+<label for="phone">PHONE NUMBER</label>
+<input id="phone" name="phone" type="tel" placeholder="Your contact number">
+</div>
+
+<div class="field">
+<label for="vehicle">VEHICLE TYPE</label>
+<select id="vehicle" name="vehicle">
+<option value="">Select vehicle</option>
+<option>Small car</option>
+<option>Hatchback / Saloon</option>
+<option>SUV / 4x4</option>
+<option>Van</option>
+<option>Other</option>
+</select>
+</div>
+
+<div class="field">
+<label for="service">SERVICE REQUIRED *</label>
+<select id="service" name="service" required>
+<option value="">Choose a service</option>
+<option>Exterior Valet</option>
+<option>Interior Valet</option>
+<option>Full Valet</option>
+<option>Not sure — advise me</option>
+</select>
+</div>
+
+<div class="field">
+<label for="location">YOUR AREA / POSTCODE</label>
+<input id="location" name="location" placeholder="e.g. Bristol, BS1">
+</div>
+
+<div class="field full">
+<label for="message">ANYTHING ELSE WE SHOULD KNOW?</label>
+<textarea id="message" name="message" placeholder="Tell us about your vehicle or preferred dates..."></textarea>
+</div>
+
+</div>
+
+<button class="btn" type="submit">Send enquiry ↗</button>
+<p class="form-note">Demo form only — no message will be sent. Connect to an email or booking service for a live website.</p>
+<div class="success" id="formSuccess" role="status">Thanks! Your demo enquiry has been captured on this page. No email was sent.</div>
+</form>
+
+</div>
+</section>
+</main>
+
+<footer>
+<div class="footer-inner">
+<div><strong>NORTHLINE MOBILE VALETING</strong><br>© 2026 Northline. Demo website concept.</div>
+<div class="footer-links">
+<a href="#services">Services</a>
+<a href="#packages">Packages</a>
+<a href="#contact">Contact</a>
+</div>
+<div>Designed as a sample business website</div>
+</div>
+</footer>
+
 <script>
-const menuToggle = document.getElementById('menuToggle');
-const navLinks = document.getElementById('navLinks');
-menuToggle.addEventListener('click', () => {
-  const open = navLinks.classList.toggle('open');
-  menuToggle.setAttribute('aria-expanded', String(open));
-  menuToggle.textContent = open ? '✕' : '☰';
+const menuToggle=document.getElementById('menuToggle');
+const navLinks=document.getElementById('navLinks');
+
+menuToggle.addEventListener('click',()=>{
+const open=navLinks.classList.toggle('open');
+menuToggle.setAttribute('aria-expanded',String(open));
+menuToggle.textContent=open?'✕':'☰';
 });
-navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
-  navLinks.classList.remove('open');
-  menuToggle.setAttribute('aria-expanded', 'false');
-  menuToggle.textContent = '☰';
-}));
-document.getElementById('quoteForm').addEventListener('submit', event => {
-  event.preventDefault();
-  if (!event.currentTarget.reportValidity()) return;
-  document.getElementById('formSuccess').style.display = 'block';
-  event.currentTarget.reset();
+
+navLinks.querySelectorAll('a').forEach(link=>{
+link.addEventListener('click',()=>{
+navLinks.classList.remove('open');
+menuToggle.setAttribute('aria-expanded','false');
+menuToggle.textContent='☰';
+});
+});
+
+document.getElementById('quoteForm').addEventListener('submit',event=>{
+event.preventDefault();
+if(!event.currentTarget.reportValidity())return;
+document.getElementById('formSuccess').style.display='block';
+event.currentTarget.reset();
 });
 </script>
 </body>
-</html>  
+</html>
